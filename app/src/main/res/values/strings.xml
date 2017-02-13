@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">FeriaInternacional</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_inicio_sesion">InicioSesionActivity</string>
+    <string name="title_activity_inicio">InicioActivity</string>
+    <string name="title_activity_perfil">PerfilActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">Home</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

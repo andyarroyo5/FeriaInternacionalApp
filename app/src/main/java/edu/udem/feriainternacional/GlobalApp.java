@@ -3,16 +3,19 @@ package edu.udem.feriainternacional;
 import android.app.Application;
 import android.content.res.Configuration;
 
+import edu.udem.feriainternacional.InicioSesion.InicioSesionPresenter;
+
 /**
  * Created by laboratorio on 2/8/17.
  */
 
 public class GlobalApp extends Application {
 
-    private GlobalApp globalApp;
+    private static GlobalApp globalApp;
 
+    private InicioSesionPresenter mInicioSesionPresenter;
 
-    public GlobalApp getInstance() {
+    public static synchronized GlobalApp getInstance() {
         return globalApp;
     }
 
@@ -20,6 +23,7 @@ public class GlobalApp extends Application {
     public void onCreate() {
         super.onCreate();
         // Required initialization logic here! singleton
+
         globalApp=this;
 
     }
@@ -28,6 +32,18 @@ public class GlobalApp extends Application {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+    }
+
+
+    public InicioSesionPresenter getInicioSesionPresenter()
+    {
+        if(mInicioSesionPresenter==null)
+        {
+            mInicioSesionPresenter=new InicioSesionPresenter();
+        }
+
+        return mInicioSesionPresenter;
+
     }
 
 
