@@ -1,5 +1,6 @@
 package edu.udem.feriainternacional;
 
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,18 +12,22 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
+import edu.udem.feriainternacional.CulturaFeed.CulturaFeedFragment;
+import edu.udem.feriainternacional.EventoFeed.EventoFeedFragment;
+import edu.udem.feriainternacional.HomeFeed.HomeFeedFragment;
+import edu.udem.feriainternacional.Perfil.PerfilFragment;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements  HomeFeedFragment.OnFragmentInteractionListener,EventoFeedFragment.OnFragmentInteractionListener,CulturaFeedFragment.OnFragmentInteractionListener, PerfilFragment.OnFragmentInteractionListener  {
 
 
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private final String TAG = this.getClass().getSimpleName();
+    private TabPagerAdapter mTabPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -38,11 +43,11 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mTabPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(mTabPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -81,40 +86,10 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
-        }
-
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "SECTION 1";
-                case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
-            }
-            return null;
-        }
+        Log.d(TAG, uri+" HOME o PERFIL");
     }
 }

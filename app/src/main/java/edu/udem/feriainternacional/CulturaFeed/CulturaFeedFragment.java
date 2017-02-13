@@ -1,4 +1,4 @@
-package edu.udem.feriainternacional.FeedHome;
+package edu.udem.feriainternacional.CulturaFeed;
 
 import android.content.Context;
 import android.net.Uri;
@@ -10,15 +10,16 @@ import android.view.ViewGroup;
 
 import edu.udem.feriainternacional.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FeedHome.OnFragmentInteractionListener} interface
+ * {@link CulturaFeedFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FeedHome#newInstance} factory method to
+ * Use the {@link CulturaFeedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FeedHome extends Fragment {
+public class CulturaFeedFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +31,7 @@ public class FeedHome extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FeedHome() {
+    public CulturaFeedFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +41,11 @@ public class FeedHome extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FeedHome.
+     * @return A new instance of fragment CulturaFeedFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FeedHome newInstance(String param1, String param2) {
-        FeedHome fragment = new FeedHome();
+    public static CulturaFeedFragment newInstance(String param1, String param2) {
+        CulturaFeedFragment fragment = new CulturaFeedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +66,7 @@ public class FeedHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed_home, container, false);
+        return inflater.inflate(R.layout.fragment_cultura_feed, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

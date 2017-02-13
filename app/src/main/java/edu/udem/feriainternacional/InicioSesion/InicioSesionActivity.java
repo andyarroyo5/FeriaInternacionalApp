@@ -23,6 +23,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 import edu.udem.feriainternacional.GlobalApp;
+import edu.udem.feriainternacional.HomeActivity;
 import edu.udem.feriainternacional.MainActivity;
 import edu.udem.feriainternacional.Perfil.PerfilActivity;
 import edu.udem.feriainternacional.R;
@@ -92,7 +93,7 @@ public class InicioSesionActivity extends AppCompatActivity implements InicioSes
     @Override
     public void irAHome(Intent datosUsuario) {
 
-        startActivity(new Intent(this, PerfilActivity.class),datosUsuario.getExtras());
+        startActivity(new Intent(this, HomeActivity.class),datosUsuario.getExtras());
         finish();
 
     }
