@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1040743972957",
+    "firebase_url": "https://feriainternacionalapp.firebaseio.com",
+    "project_id": "feriainternacionalapp",
+    "storage_bucket": "feriainternacionalapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040743972957:android:181600782e4a9725",
+        "android_client_info": {
+          "package_name": "edu.udem.feriainternacional"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040743972957-67cb2pvup5gp36vs59a8m8ofum3fc7rg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.udem.feriainternacional",
+            "certificate_hash": "2EE17FFB7322E728C493D31DB87F2D5571CA2302"
+          }
+        },
+        {
+          "client_id": "1040743972957-6do9f4dtiic6a4qt0p112gcujke7omfn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.udem.feriainternacional",
+            "certificate_hash": "B5BA301C2B0F7C4C9DBB1AFDD10031CBC110539A"
+          }
+        },
+        {
+          "client_id": "1040743972957-2ko2cktjgjiu5aokknmssrjk035aog23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiwERA71Zv6GaoWzQZHiXzJuOxVParJ9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040743972957-2ko2cktjgjiu5aokknmssrjk035aog23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

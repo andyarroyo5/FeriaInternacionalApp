@@ -6,6 +6,8 @@ import android.content.Intent;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import edu.udem.feriainternacional.data.Usuario;
+
 /**
  * Created by andrea on 12/02/17.
  */
@@ -78,12 +80,15 @@ public interface InicioSesionContract {
 
     interface RepositorioDatos {
 
-        void agregarUsuario();
+        void getTodoslosUsuarios();
 
-        void eliminarUsuario();
+        void getUsuario(double id);
 
-        void actualizarUsuario();
+        void agregarUsuario(Usuario usuario);
 
+        void eliminarUsuario(double id);
+
+        void actualizarUsuario(double id);
 
     }
 

@@ -19,6 +19,9 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import edu.udem.feriainternacional.data.Usuario;
+import edu.udem.feriainternacional.data.UsuarioRepositorio;
+
 
 /**
  * Created by andrea on 12/02/17.
@@ -43,6 +46,7 @@ public class InicioSesionPresenter implements InicioSesionContract.AccionesUsuar
 
     private boolean statusInicioSesion=false;
 
+    private UsuarioRepositorio usuarioRepositorio;
 
 
     public void setView(@NonNull InicioSesionContract.View mInicioSesionView)
@@ -191,15 +195,25 @@ public class InicioSesionPresenter implements InicioSesionContract.AccionesUsuar
             GoogleSignInAccount cuenta = resultado.getSignInAccount();
 
 
+            Usuario usuario=new Usuario(cuenta.getId(),cuenta.getDisplayName(),cuenta.getEmail(),cuenta.getPhotoUrl());
+            //agregar usuario o checar si ya tiene cuenta *
+            usuarioRepositorio=new UsuarioRepositorio(usuario);
+            usuarioRepositorio.nuevoUsuario();
+
             Intent datosUsuario= new Intent();
+
             datosUsuario.putExtra("id",cuenta.getId());
             datosUsuario.putExtra("nombre", cuenta.getDisplayName());
             datosUsuario.putExtra("correo", cuenta.getEmail());
             datosUsuario.putExtra("img",cuenta.getPhotoUrl());
 
+
+
             mInicioSesionView.mensajeInicioSesion(cuenta.getDisplayName());
 
             mInicioSesionView.irAHome(datosUsuario);
+
+
 
 
 
