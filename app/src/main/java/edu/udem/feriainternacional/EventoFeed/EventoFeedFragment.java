@@ -4,10 +4,19 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import edu.udem.feriainternacional.EventoFeed.adapter.AdapterExample;
+import edu.udem.feriainternacional.FragmentBase;
 import edu.udem.feriainternacional.R;
 
 /**
@@ -18,25 +27,25 @@ import edu.udem.feriainternacional.R;
  * Use the {@link EventoFeedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventoFeedFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class EventoFeedFragment extends FragmentBase implements  FeedContract.ViewRecycler {
 
-    private OnFragmentInteractionListener mListener;
 
-    public EventoFeedFragment() {
-        // Required empty public constructor
+
+    private final String TAG = this.getClass().getSimpleName();
+
+
+    private FeedPresenter mFeedPresenter;
+
+    public EventoFeedFragment() { }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.fragment_base;
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Metodo Fabrica para instancia Fragment
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
@@ -44,66 +53,52 @@ public class EventoFeedFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static EventoFeedFragment newInstance(String param1, String param2) {
+
         EventoFeedFragment fragment = new EventoFeedFragment();
+        /*
         Bundle args = new Bundle();
+
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+        */
+
         return fragment;
     }
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public RecyclerView.LayoutManager getLayoutManager() {
+        return getGridLayoutManager();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_evento_feed, container, false);
+    public RecyclerView.Adapter getAdapter(ArrayList<Object> itemLista) {
+        return new AdapterExample(itemLista,R.layout.item_evento);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+
+
+    private GridLayoutManager getGridLayoutManager() {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(
+                getActivity(),
+                2,
+                GridLayoutManager.VERTICAL,
+                false);
+
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int posicion) {
+                //stagger rows custom
+                return (posicion % 3 == 0 ? 2 : 1);
+            }
+        });
+
+
+        return gridLayoutManager;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 }

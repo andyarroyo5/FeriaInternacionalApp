@@ -30,15 +30,12 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
 
             case 0:
-                return  new HomeFeedFragment();
-
-            case 1:
                 return  new EventoFeedFragment();
 
-            case 2:
+            case 1:
                 return  new CulturaFeedFragment();
 
-            case 3:
+            case 2:
                 return  new PerfilFragment();
 
             // si la posición recibida no se corresponde a ninguna sección
@@ -50,19 +47,17 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 4;
+        return 3;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Home";
-            case 1:
                 return "Evento";
-            case 2:
+            case 1:
                 return "Cultura";
-            case 3:
+            case 2:
                 return "Perfil";
         }
         return null;

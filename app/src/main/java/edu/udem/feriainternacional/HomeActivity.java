@@ -41,11 +41,10 @@ public class HomeActivity extends AppCompatActivity implements  HomeFeedFragment
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // Crea un adaptador para regresar los fragments de las vistas
         mTabPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
+        // Manejar el ViewPager con el adaptador de tabs
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mTabPagerAdapter);
 

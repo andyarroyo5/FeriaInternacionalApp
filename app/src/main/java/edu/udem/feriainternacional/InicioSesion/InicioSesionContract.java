@@ -44,6 +44,8 @@ public interface InicioSesionContract {
 
     // Maneja lo relacionado a las acciones del Usuario
 
+    //TODO agregar interface Presenter con sus metodos
+
     interface AccionesUsuarioListener  {
 
         Intent iniciarSesion();
